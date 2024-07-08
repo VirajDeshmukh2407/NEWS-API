@@ -12,15 +12,11 @@ const BASE_URL = "https://newsapi.org/v2/top-headlines";
 app.use(
   cors({
     origin: "*",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type"],
+    methods: ["GET"],
   })
 );
 app.get("/api/news", async (req, res) => {
-  const { category } = req.query;
-  const url = `${BASE_URL}?country=in&apiKey=${API_KEY}${
-    category ? `&category=${category}` : ""
-  }`;
+  const url = `${BASE_URL}?country=in&apiKey=${API_KEY}`;
 
   try {
     const response = await axios.get(url);
