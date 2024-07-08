@@ -7,8 +7,15 @@ const PORT = process.env.PORT || 5000;
 const API_KEY = "19e370ed9a484826a1100e7436f463fe";
 const BASE_URL = "https://newsapi.org/v2/top-headlines";
 
-app.use(cors());
+// app.use(cors());
 
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 app.get("/api/news", async (req, res) => {
   const { category } = req.query;
   const url = `${BASE_URL}?country=in&apiKey=${API_KEY}${
