@@ -2,11 +2,12 @@ const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 
 // const API_KEY = "19e370ed9a484826a1100e7436f463fe";
-const API_KEY = "508f59da82e4481dba4db232fb898ad4";
-const BASE_URL = "https://newsapi.org/v2/top-headlines";
+const API_KEY = "2BnUs6BowuC5s8EU6p9bLnhMpY8TleVAUO8RH_QfN2niwr60";
+// const BASE_URL = "https://newsapi.org/v2/top-headlines";
+const BASE_URL = "'https://api.currentsapi.services/v1/latest-news?'";
 
 app.use(
   cors({
