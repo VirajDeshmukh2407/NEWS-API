@@ -4,7 +4,8 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const API_KEY = "19e370ed9a484826a1100e7436f463fe";
+// const API_KEY = "19e370ed9a484826a1100e7436f463fe";
+const API_KEY = "508f59da82e4481dba4db232fb898ad4";
 const BASE_URL = "https://newsapi.org/v2/top-headlines";
 
 app.use(
