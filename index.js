@@ -117,9 +117,33 @@ const app = express();
 const PORT = 9000;
 const API_KEY = "29992a82f62d43158ee6e8844d8fa012";
 
-app.use(cors());
-app.use(cors({ origin: "http://localhost:3000" }));
+// app.use(cors());
+// // app.use(cors({ origin: "http://localhost:3000" }));
 
+// const allowedOrigins = [
+//   "http://localhost:3000",
+//   "https://newsify24.vercel.app",
+// ];
+
+// app.use(
+//   cors({
+//     origin: (origin, callback) => {
+//       if (!origin || allowedOrigins.includes(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//   })
+// );
+
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,POST,PUT,DELETE",
+    allowedHeaders: "Content-Type,Authorization",
+  })
+);
 app.use(express.json());
 
 // Logging middleware for debugging
@@ -134,10 +158,10 @@ app.get("/api/news", async (req, res) => {
   try {
     const response = await axios.get("https://newsapi.org/v2/top-headlines", {
       params: {
-        country: "us",
+        country: "in",
         category: category,
         apiKey: API_KEY,
-        pageSize: 10,
+        pageSize: 30,
       },
     });
 
